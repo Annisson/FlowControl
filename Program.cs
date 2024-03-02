@@ -10,6 +10,7 @@
 
             do
             {
+                
                 Console.WriteLine("Main menu, please enter a number from the options below to continue.");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("1. Cinema, age-check");
@@ -17,7 +18,9 @@
                 Console.WriteLine("3. Repeat 10 times");
                 Console.WriteLine("4. Play a word-game");
 
-                int userInput = int.Parse(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out int userInput);
+
+                Console.Clear(); //Clean up console
 
                 switch (userInput)
                 {
@@ -35,8 +38,10 @@
                         continue;
 
                     case 3:
-                        Console.WriteLine("Repeat 10 times");
-                        continue;
+                        Console.Write("Please type what you want to repeat 10 times: ");
+                        string repeatInput = Console.ReadLine();
+                        RepeatWords(repeatInput);
+                        break;
 
                     case 4:
                         Console.WriteLine("Play a word-game");
@@ -51,5 +56,19 @@
 
 
         }
+
+        static void RepeatWords(string input)
+        {
+            int count = 1;
+            for (int i = 0; i < 10; i++)
+            {
+                if (i < 9)
+                    Console.Write($"{count}. {input}, ");
+                else
+                    Console.Write($"{count}. {input}");
+                count++;
+            }
+        }
+
     }
 }
