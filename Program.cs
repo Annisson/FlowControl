@@ -11,12 +11,12 @@
             do
             {
                 
-                Console.WriteLine("Main menu, please enter a number from the options below to continue.");
-                Console.WriteLine("0. Exit");
-                Console.WriteLine("1. Cinema, age-check");
-                Console.WriteLine("2. Cinema, number of guests and total cost");
-                Console.WriteLine("3. Repeat 10 times");
-                Console.WriteLine("4. Play a word-game");
+                Console.WriteLine("\nMain menu, please enter a number from the options below to continue." +
+                    "\n0. Exit" +
+                    "\n1. Cinema, age-check" +
+                    "\n2. Cinema, number of guests and total cost" +
+                    "\n3. Repeat 10 times" +
+                    "\n4. Play a word-game");
 
                 int.TryParse(Console.ReadLine(), out int userInput);
 
