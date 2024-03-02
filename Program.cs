@@ -65,7 +65,7 @@
                 if (i < 9)
                     Console.Write($"{count}. {input}, ");
                 else
-                    Console.Write($"{count}. {input}");
+                    Console.Write($"{count}. {input}\n");
                 count++;
             }
         }
