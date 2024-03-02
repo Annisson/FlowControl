@@ -44,7 +44,10 @@
                         break;
 
                     case 4:
-                        Console.WriteLine("Play a word-game");
+                        Console.Write("Let's play a word-game!" +
+                            "\nType a sentence of at least three words: ");
+                        string wordInput = Console.ReadLine();
+                        ThirdWord(wordInput);
                         continue;
 
                     default:
@@ -70,5 +73,18 @@
             }
         }
 
+        static void ThirdWord(string input)
+        {
+            var splitInput = input.Split(' ');
+            if (splitInput.Length < 3 )
+            {
+                Console.WriteLine("You sentence is not long enough, you need to enter at least three words.");
+            }
+            else
+            {
+                Console.WriteLine($"This is the third word: {splitInput[2]}");
+            }
+            
+        }
     }
 }
