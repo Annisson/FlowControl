@@ -1,4 +1,6 @@
-﻿namespace FlowControl
+﻿using System.ComponentModel.Design;
+
+namespace FlowControl
 {
     internal class Program
     {
@@ -29,21 +31,23 @@
                         Environment.Exit(0);
                         break;
 
-                    case 1:
-                        Console.WriteLine("Cinema, age-check");
+                    case 1: //Cinema, age-check
+                        Console.Write("Welcome to the cinema!\nPlease enter your age to check the price for your ticket: ");
+                        int.TryParse(Console.ReadLine(), out int ageInput);
+                        CinemaAgeCheck(ageInput);
                         continue;
 
-                    case 2:
+                    case 2: //Cinema, number of guests and total cost
                         Console.WriteLine("Cinema, number of guests and total cost");
                         continue;
 
-                    case 3:
+                    case 3: //Repeat 10 times
                         Console.Write("Please type what you want to repeat 10 times: ");
                         string repeatInput = Console.ReadLine();
                         RepeatWords(repeatInput);
                         break;
 
-                    case 4:
+                    case 4: //Word-game
                         Console.Write("Let's play a word-game!" +
                             "\nType a sentence of at least three words: ");
                         string wordInput = Console.ReadLine();
@@ -59,6 +63,41 @@
 
 
         }
+
+        static void CinemaAgeCheck(int input)
+        {
+            if (input < 20)
+            {
+                if (input < 5)
+                {
+                    Console.WriteLine("Children under the age of 5 enter for free");
+                }
+                else if (input >= 5)
+                {
+                    Console.WriteLine("Youth ticket price: 80 SEK");
+                }
+            }
+            else if (input >= 20)
+            {
+                if (input >= 20 && input <= 64)
+                {
+                    Console.WriteLine("Standard ticket price: 120 SEK");
+                }
+                else if(input > 64 && input <= 100)
+                {
+                    Console.WriteLine("Pensioner ticket price: 90 SEK");
+                }
+                else
+                {
+                    Console.WriteLine("Pensioners over the age of 100 enter for free");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error beep boop");
+            }
+        }
+
 
         static void RepeatWords(string input)
         {
