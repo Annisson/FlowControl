@@ -44,10 +44,7 @@ namespace FlowControl
                         break;
 
                     case 4: //Word-game
-                        Console.Write("Let's play a word-game!" +
-                            "\nType a sentence of at least three words: ");
-                        string wordInput = Console.ReadLine();
-                        ThirdWord(wordInput);
+                        ThirdWord();
                         continue;
 
                     default:
@@ -114,9 +111,14 @@ namespace FlowControl
             }
         }
 
-        static void ThirdWord(string input)
+        static void ThirdWord()
         {
-            var splitInput = input.Split(' ');
+            Console.Write("Let's play a word-game!" +
+            "\nType a sentence of at least three words: ");
+
+            string wordInput = Console.ReadLine();
+            var splitInput = wordInput.Split(' ');
+
             if (splitInput.Length < 3 )
             {
                 Console.WriteLine("You sentence is not long enough, you need to enter at least three words.");
