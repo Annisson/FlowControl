@@ -32,9 +32,7 @@ namespace FlowControl
                         break;
 
                     case 1: //Cinema, age-check
-                        Console.Write("Welcome to the cinema!\nPlease enter your age to check the price for your ticket: ");
-                        int.TryParse(Console.ReadLine(), out int ageInput);
-                        CinemaAgeCheck(ageInput);
+                        CinemaAgeCheck();
                         continue;
 
                     case 2: //Cinema, number of guests and total cost
@@ -64,8 +62,11 @@ namespace FlowControl
 
         }
 
-        static void CinemaAgeCheck(int input)
+        static void CinemaAgeCheck()
         {
+            Console.Write("Welcome to the cinema!\nPlease enter your age to check the price for your ticket: ");
+            int.TryParse(Console.ReadLine(), out int input);
+
             if (input < 20)
             {
                 if (input < 5)
