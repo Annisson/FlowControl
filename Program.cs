@@ -12,7 +12,7 @@ namespace FlowControl
 
             do
             {
-                
+
                 Console.WriteLine("\nMain menu, please enter a number from the options below to continue." +
                     "\n0. Exit" +
                     "\n1. Cinema, age-check" +
@@ -36,7 +36,7 @@ namespace FlowControl
                         continue;
 
                     case 2: //Cinema, number of guests and total cost
-                        Console.WriteLine("Cinema, number of guests and total cost");
+                        CinemaTotal();
                         continue;
 
                     case 3: //Repeat 10 times
@@ -79,7 +79,7 @@ namespace FlowControl
                 {
                     Console.WriteLine("Standard ticket price: 120 SEK");
                 }
-                else if(input > 64 && input <= 100)
+                else if (input > 64 && input <= 100)
                 {
                     Console.WriteLine("Pensioner ticket price: 90 SEK");
                 }
@@ -92,6 +92,27 @@ namespace FlowControl
             {
                 Console.WriteLine("Error beep boop");
             }
+        }
+
+        static void CinemaTotal()
+        {
+            List<int> ticketPriceList = new List<int>();
+            int ageInput = 0;
+
+            Console.Write("Welcome to the cinema!\nPlease enter how many tickets you would like to buy: ");
+            int.TryParse(Console.ReadLine(), out int numberOfTickets);
+            int[] ticketArray = new int[numberOfTickets];
+
+            Console.Write("\nPlease enter the age of each person you are buying a ticket for. ");
+
+            foreach (int ticket in ticketArray)
+            {
+                Console.Write("\nAge: ");
+                int.TryParse(Console.ReadLine(), out ageInput);
+                ticketPriceList.Add(ageInput);
+            }
+            Console.WriteLine("Number of tickets:" + numberOfTickets.ToString());
+
         }
 
 
