@@ -40,9 +40,7 @@ namespace FlowControl
                         continue;
 
                     case 3: //Repeat 10 times
-                        Console.Write("Please type what you want to repeat 10 times: ");
-                        string repeatInput = Console.ReadLine();
-                        RepeatWords(repeatInput);
+                        RepeatWords();
                         break;
 
                     case 4: //Word-game
@@ -100,15 +98,18 @@ namespace FlowControl
         }
 
 
-        static void RepeatWords(string input)
+        static void RepeatWords()
         {
+            Console.Write("Please type what you want to repeat 10 times: ");
+            string repeatInput = Console.ReadLine();
+
             int count = 1;
             for (int i = 0; i < 10; i++)
             {
                 if (i < 9)
-                    Console.Write($"{count}. {input}, ");
+                    Console.Write($"{count}. {repeatInput}, ");
                 else
-                    Console.Write($"{count}. {input}\n");
+                    Console.Write($"{count}. {repeatInput}\n");
                 count++;
             }
         }
