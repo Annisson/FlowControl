@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace FlowControl
 {
@@ -134,8 +135,8 @@ namespace FlowControl
 
         static void CinemaTotal()
         {
-            List<int> ticketPriceList = new List<int>();
-            int ageInput = 0;
+            int pricePerPerson = 0;
+            int totalPrice = 0;
 
             Console.Write("Welcome to the cinema!\nPlease enter how many tickets you would like to buy: ");
             int.TryParse(Console.ReadLine(), out int numberOfTickets);
@@ -146,10 +147,12 @@ namespace FlowControl
             foreach (int ticket in ticketArray)
             {
                 Console.Write("\nAge: ");
-                int.TryParse(Console.ReadLine(), out ageInput);
-                ticketPriceList.Add(ageInput);
+                int.TryParse(Console.ReadLine(), out int ageInput);
+                pricePerPerson = CinemaPrices(ageInput);
+                totalPrice += pricePerPerson;
             }
-            Console.WriteLine("Number of tickets:" + numberOfTickets.ToString());
+            Console.WriteLine("Number of tickets: " + numberOfTickets.ToString());
+            Console.WriteLine("Total price for all tickets: " + totalPrice);
 
         }
 
