@@ -57,8 +57,43 @@ namespace FlowControl
 
         }
 
+        static int CinemaPrices(int age)
+        {
+            int price = 0;
+
+            if (age < 20)
+            {
+                if (age < 5)
+                {
+                    price = 0;
+                }
+                else if (age >= 5)
+                {
+                    price = 80;
+                }
+            }
+            else if (age >= 20)
+            {
+                if (age >= 20 && age <= 64)
+                {
+                    price = 120;
+                }
+                else if (age > 64 && age <= 100)
+                {
+                    price = 90;
+                }
+                else
+                {
+                    price = 0;
+                }
+            }
+            return price;
+        }
+
         static void CinemaAgeCheck()
         {
+            int price = 0;
+
             Console.Write("Welcome to the cinema!\nPlease enter your age to check the price for your ticket: ");
             int.TryParse(Console.ReadLine(), out int input);
 
@@ -70,18 +105,21 @@ namespace FlowControl
                 }
                 else if (input >= 5)
                 {
-                    Console.WriteLine("Youth ticket price: 80 SEK");
+                    price = CinemaPrices(input);
+                    Console.WriteLine($"Youth ticket price: {price} SEK");
                 }
             }
             else if (input >= 20)
             {
                 if (input >= 20 && input <= 64)
                 {
-                    Console.WriteLine("Standard ticket price: 120 SEK");
+                    price = CinemaPrices(input);
+                    Console.WriteLine($"Standard ticket price: {price} SEK");
                 }
                 else if (input > 64 && input <= 100)
                 {
-                    Console.WriteLine("Pensioner ticket price: 90 SEK");
+                    price = CinemaPrices(input);
+                    Console.WriteLine($"Pensioner ticket price: {price} SEK");
                 }
                 else
                 {
