@@ -9,11 +9,10 @@ namespace FlowControl
         {
             Console.WriteLine("Flow Control Application");
 
-            bool runMenu = true;
+            bool runMenu = true; //Created bool to run the do-while menu until the user decides to exit the application
 
             do
             {
-
                 Console.WriteLine("\nMain menu, please enter a number from the options below to continue." +
                     "\n0. Exit" +
                     "\n1. Cinema, age-check" +
@@ -21,7 +20,7 @@ namespace FlowControl
                     "\n3. Repeat 10 times" +
                     "\n4. Play a word-game");
 
-                int.TryParse(Console.ReadLine(), out int userInput);
+                int.TryParse(Console.ReadLine(), out int userInput); //Parse the string user input to an int saved in the variable userInput
 
                 Console.Clear(); //Clean up console
 
@@ -33,11 +32,11 @@ namespace FlowControl
                         break;
 
                     case 1: //Cinema, age-check
-                        CinemaAgeCheck();
+                        Cinema.CinemaAgeCheck();
                         continue;
 
                     case 2: //Cinema, number of guests and total cost
-                        CinemaTotal();
+                        Cinema.CinemaTotal();
                         continue;
 
                     case 3: //Repeat 10 times
@@ -54,138 +53,37 @@ namespace FlowControl
                 }
 
             } while (runMenu);
-
-
         }
 
-        static int CinemaPrices(int age)
-        {
-            int price = 0;
-
-            if (age < 20)
-            {
-                if (age < 5)
-                {
-                    price = 0;
-                }
-                else if (age >= 5)
-                {
-                    price = 80;
-                }
-            }
-            else if (age >= 20)
-            {
-                if (age >= 20 && age <= 64)
-                {
-                    price = 120;
-                }
-                else if (age > 64 && age <= 100)
-                {
-                    price = 90;
-                }
-                else
-                {
-                    price = 0;
-                }
-            }
-            return price;
-        }
-
-        static void CinemaAgeCheck()
-        {
-            int price = 0;
-
-            Console.Write("Welcome to the cinema!\nPlease enter your age to check the price for your ticket: ");
-            int.TryParse(Console.ReadLine(), out int input);
-
-            if (input < 20)
-            {
-                if (input < 5)
-                {
-                    Console.WriteLine("Children under the age of 5 enter for free");
-                }
-                else if (input >= 5)
-                {
-                    price = CinemaPrices(input);
-                    Console.WriteLine($"Youth ticket price: {price} SEK");
-                }
-            }
-            else if (input >= 20)
-            {
-                if (input >= 20 && input <= 64)
-                {
-                    price = CinemaPrices(input);
-                    Console.WriteLine($"Standard ticket price: {price} SEK");
-                }
-                else if (input > 64 && input <= 100)
-                {
-                    price = CinemaPrices(input);
-                    Console.WriteLine($"Pensioner ticket price: {price} SEK");
-                }
-                else
-                {
-                    Console.WriteLine("Pensioners over the age of 100 enter for free");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error beep boop");
-            }
-        }
-
-        static void CinemaTotal()
-        {
-            int pricePerPerson = 0;
-            int totalPrice = 0;
-
-            Console.Write("Welcome to the cinema!\nPlease enter how many tickets you would like to buy: ");
-            int.TryParse(Console.ReadLine(), out int numberOfTickets);
-            int[] ticketArray = new int[numberOfTickets];
-
-            Console.Write("\nPlease enter the age of each person you are buying a ticket for. ");
-
-            foreach (int ticket in ticketArray)
-            {
-                Console.Write("\nAge: ");
-                int.TryParse(Console.ReadLine(), out int ageInput);
-                pricePerPerson = CinemaPrices(ageInput);
-                totalPrice += pricePerPerson;
-            }
-            Console.WriteLine("Number of tickets: " + numberOfTickets.ToString());
-            Console.WriteLine("Total price for all tickets: " + totalPrice);
-
-        }
-
-
-        static void RepeatWords()
+        static void RepeatWords() //Method for case 3
         {
             Console.Write("Please type what you want to repeat 10 times: ");
             string repeatInput = Console.ReadLine();
 
-            int count = 1;
+            int count = 1; //Counter set to 1 to get the correct value when looping
             for (int i = 0; i < 10; i++)
             {
                 if (i < 9)
-                    Console.Write($"{count}. {repeatInput}, ");
+                    Console.Write($"{count}. {repeatInput}, "); //If-statement to add commas to every loop except the last for clean output
                 else
                     Console.Write($"{count}. {repeatInput}\n");
-                count++;
+                count++; 
             }
         }
 
-        static void ThirdWord()
+        static void ThirdWord() //Method for case 4
         {
             Console.Write("Let's play a word-game!" +
             "\nType a sentence of at least three words: ");
 
             string wordInput = Console.ReadLine();
-            var splitInput = wordInput.Split(' ');
+            var splitInput = wordInput.Split(' '); //Splitting the user input by each space to save into an array
 
-            if (splitInput.Length < 3 )
+            if (splitInput.Length < 3 ) //If-statement to check if the user input contains less than 3 words
             {
                 Console.WriteLine("You sentence is not long enough, you need to enter at least three words.");
             }
-            else
+            else //If the user entered at least 3 words then the output will be of the 2nd arrayvalue, starting from 0 which gives us the 3rd word
             {
                 Console.WriteLine($"This is the third word: {splitInput[2]}");
             }
