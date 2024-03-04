@@ -60,14 +60,12 @@ namespace FlowControl
             Console.Write("Please type what you want to repeat 10 times: ");
             string repeatInput = Console.ReadLine();
 
-            int count = 1; //Counter set to 1 to get the correct value when looping
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i < 11; i++)
             {
                 if (i < 9)
-                    Console.Write($"{count}. {repeatInput}, "); //If-statement to add commas to every loop except the last for clean output
+                    Console.Write($"{i}. {repeatInput}, "); //If-statement to add commas to every loop except the last for clean output
                 else
-                    Console.Write($"{count}. {repeatInput}\n");
-                count++; 
+                    Console.Write($"{i}. {repeatInput}\n");
             }
         }
 
