@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowControl
 {
-    public class Cinema //Class for handling Cinema business
+    internal class Cinema //Class for handling Cinema business
     {
         private static int CinemaPrices(int age) //Set private so it is only accessible from within this class
         {
@@ -50,11 +50,15 @@ namespace FlowControl
 
             if (input < 20)
             {
-                if (input < 5)
+                if (input < 0)
+                {
+                    Console.WriteLine("The age cannot be less than 0");
+                }
+                else if (input < 5)
                 {
                     Console.WriteLine("Children under the age of 5 enter for free");
                 }
-                else if (input >= 5)
+                else //Age 5 and up
                 {
                     price = CinemaPrices(input); //Caling the method which contains the prices and presenting the return value below
                     Console.WriteLine($"Youth ticket price: {price} SEK");
@@ -72,7 +76,7 @@ namespace FlowControl
                     price = CinemaPrices(input);
                     Console.WriteLine($"Pensioner ticket price: {price} SEK");
                 }
-                else
+                else //Above age 100, meaning age 101 and up
                 { 
                     Console.WriteLine("Pensioners over the age of 100 enter for free");
                 }
