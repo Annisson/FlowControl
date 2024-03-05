@@ -55,7 +55,7 @@
                     }
                     else //Age 5 and up
                     {
-                        price = CinemaPrices(input); //Caling the method which contains the prices and presenting the return value below
+                        price = CinemaPrices(input); //Calling the method which contains the prices and presenting the return value below
                         Console.WriteLine($"Youth ticket price: {price} SEK");
                     }
                 }
