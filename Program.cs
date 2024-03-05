@@ -33,19 +33,19 @@ namespace FlowControl
 
                     case 1: //Cinema, age-check
                         Cinema.CinemaAgeCheck();
-                        continue;
+                        break;
 
                     case 2: //Cinema, number of guests and total cost
                         Cinema.CinemaTotal();
-                        continue;
+                        break;
 
                     case 3: //Repeat 10 times
-                        RepeatWords();
+                        RepeatWordGame.RepeatWords();
                         break;
 
                     case 4: //Word-game
                         ThirdWord();
-                        continue;
+                        break;
 
                     default:
                         Console.WriteLine("Incorrect input, please use numbers 0 or 1 only.");
@@ -53,20 +53,6 @@ namespace FlowControl
                 }
 
             } while (runMenu);
-        }
-
-        static void RepeatWords() //Method for case 3
-        {
-            Console.Write("Please type what you want to repeat 10 times: ");
-            string repeatInput = Console.ReadLine();
-
-            for (int i = 1; i < 11; i++)
-            {
-                if (i < 9)
-                    Console.Write($"{i}. {repeatInput}, "); //If-statement to add commas to every loop except the last for clean output
-                else
-                    Console.Write($"{i}. {repeatInput}\n");
-            }
         }
 
         static void ThirdWord() //Method for case 4
