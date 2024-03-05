@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Diagnostics;
-
-namespace FlowControl
+﻿namespace FlowControl
 {
     internal class Program
     {
