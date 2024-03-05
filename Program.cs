@@ -44,7 +44,7 @@ namespace FlowControl
                         break;
 
                     case 4: //Word-game
-                        ThirdWord();
+                        ThirdWordGame.ThirdWord();
                         break;
 
                     default:
@@ -53,25 +53,6 @@ namespace FlowControl
                 }
 
             } while (runMenu);
-        }
-
-        static void ThirdWord() //Method for case 4
-        {
-            Console.Write("Let's play a word-game!" +
-            "\nType a sentence of at least three words: ");
-
-            string wordInput = Console.ReadLine();
-            var splitInput = wordInput.Split(' '); //Splitting the user input by each space to save into an array
-
-            if (splitInput.Length < 3 ) //If-statement to check if the user input contains less than 3 words
-            {
-                Console.WriteLine("You sentence is not long enough, you need to enter at least three words.");
-            }
-            else //If the user entered at least 3 words then the output will be of the 2nd arrayvalue, starting from 0 which gives us the 3rd word
-            {
-                Console.WriteLine($"This is the third word: {splitInput[2]}");
-            }
-            
         }
     }
 }
