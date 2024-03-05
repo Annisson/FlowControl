@@ -10,7 +10,8 @@
             "\nType a sentence of at least three words: ");
 
             string WordInput = Console.ReadLine();
-            var splitInput = WordInput.Split(' '); //Splitting the user input by each blank space to save into an array
+            var splitInput = WordInput.Split(' ', StringSplitOptions.RemoveEmptyEntries); //Splitting the user input by each blank space to save into an array,
+                                                                                          //and then removes any "empty" string entries, preventing blank spaces from being saved in the array
 
             if (splitInput.Length < 3) //If-statement to check if the user input contains less than 3 words
             {
